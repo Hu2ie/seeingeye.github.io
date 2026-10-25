@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>seeing.eye/More</title>
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Archivo Black&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: linear-gradient(rgba(14, 14, 14, 0.95), rgba(14, 14, 14, 0.95)), url('../assets/image1.jpg');
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top-bar {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      color: #000;
+      text-decoration: none;
+      font-weight: 800;
+      border: var(--border);
+      background: var(--acid);
+      box-shadow: 6px 6px 0 #000;
+      padding: 12px 24px;
+      letter-spacing: 2px;
+      transition: all 0.15s;
+    }
+
+    .back-btn:hover {
+      background: var(--ink);
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 #000;
+    }
+
+    .title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 var(--acid);
+    }
+
+    /* Вкладки — бруталистские "папки" */
+    .tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      width: 100%;
+      max-width: 900px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #000;
+      border: var(--border);
+      border-right: none;
+      color: #888;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 800;
+      cursor: pointer;
+      padding: 14px 28px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.15s;
+      margin-bottom: -3px;
+    }
+
+    .tab-btn:last-child { border-right: var(--border); }
+
+    .tab-btn:hover {
+      color: #000;
+      background: var(--ink);
+    }
+
+    .tab-btn.active {
+      color: #000;
+      background: var(--acid);
+      box-shadow: inset 0 -6px 0 #000;
+    }
+
+    /* Контент */
+    .content-box {
+      width: 100%;
+      max-width: 900px;
+      border: var(--border);
+      border-top: none;
+      padding: 44px;
+      background-color: #000;
+      box-shadow: var(--shadow);
+      display: none;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .content-box.active {
+      display: block;
+      animation: slam 0.35s cubic-bezier(.2,.9,.3,1.2);
+    }
+
+    @keyframes slam {
+      0% { opacity: 0; transform: translateY(-14px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .content-box h3 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.6rem;
+      color: var(--acid);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .content-box a {
+      color: #000;
+      background: var(--acid);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 2px 8px;
+      border: 2px solid var(--acid);
+      transition: all 0.15s;
+    }
+
+    .content-box a:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .empty-tag {
+      display: inline-block;
+      border: 2px dashed #555;
+      color: #888;
+      padding: 8px 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="../index.html" class="back-btn">[ ← BACK ]</a>
+    <div class="title">seeing.eye/more</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'about')">ABOUT</button>
+    <button class="tab-btn" onclick="openTab(event, 'support')">SUPPORT</button>
+    <button class="tab-btn" onclick="openTab(event, 'lab')">PROGRAM LAB</button>
+  </div>
+
+  <!-- Вкладка ABOUT -->
+  <div id="about" class="content-box active">
+    <h3>&gt; ABOUT</h3>
+    <p>Seeing.eye is a group of cybersecurity enthusiasts. Is there a place for beginners? Absolutely! We'll gladly train newcomers, and we can tackle CTF (Capture The Flag) challenges together. On our Discord server, we dive into penetration testing, reverse engineering, and OSINT, while also participating in team-based CTF competitions. You can also help our community grow—share the link with a friend so they can join us in exploring cybersecurity after school, work, or college! Our server features a responsive moderation team ready to assist you if you run into any issues. If you'd prefer not to reach out to the moderators, you can message the server admin directly—they're almost always online.</p>
+  </div>
+
+  <!-- Вкладка SUPPORT -->
+  <div id="support" class="content-box">
+    <h3>&gt; SUPPORT</h3>
+    <p>If you have questions or need help, you can write a direct message to the leader on TikTok: <a href="https://tiktok.com/@ffuf0d" target="_blank">@ffuf0d</a></p>
+  </div>
+
+  <!-- Вкладка PROGRAM LAB -->
+  <div id="lab" class="content-box">
+    <h3>&gt; PROGRAM LAB</h3>
+    <p><span class="empty-tag">Coming soon... [ empty ]</span></p>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      let i, content, tabs;
+      content = document.getElementsByClassName("content-box");
+      for (i = 0; i < content.length; i++) {
+        content[i].classList.remove("active");
+      }
+
+      tabs = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
